@@ -9,7 +9,7 @@ const SignUp = ({ navigation }: any) => {
 
     const handleSignUp = async () => {
         try {
-            await createUserWithEmailAndPassword(auth, email, password);
+            // await createUserWithEmailAndPassword(auth, email, password);
             Alert.alert("Success", "Account created successfully!");
             navigation.navigate("SignIn");
         } catch (error: any) {
@@ -20,11 +20,23 @@ const SignUp = ({ navigation }: any) => {
     return (
         <View style={{ flex: 1, justifyContent: "center", padding: 20 }}>
             <Text>Email</Text>
-            <TextInput value={email} onChangeText={setEmail} style={{ borderBottomWidth: 1, marginBottom: 10 }} />
+            <TextInput
+                value={email}
+                onChangeText={setEmail}
+                style={{ borderBottomWidth: 1, marginBottom: 10 }}
+            />
             <Text>Password</Text>
-            <TextInput value={password} onChangeText={setPassword} secureTextEntry style={{ borderBottomWidth: 1, marginBottom: 10 }} />
+            <TextInput
+                value={password}
+                onChangeText={setPassword}
+                secureTextEntry
+                style={{ borderBottomWidth: 1, marginBottom: 10 }}
+            />
             <Button title="Sign Up" onPress={handleSignUp} />
-            <Button title="Back to Login" onPress={() => navigation.navigate("SignIn")} />
+            <Button
+                title="Back to Login"
+                onPress={() => navigation.navigate("SignIn")}
+            />
         </View>
     );
 };
